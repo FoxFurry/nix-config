@@ -9,5 +9,4 @@
 
 killall waybar
 
-waybar -c ~/.waybar/waybar.conf
-
+waybar -c $HOME/.config/waybar/waybar.conf -s $HOME/.config/waybar/themes/neon/style.css

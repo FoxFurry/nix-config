@@ -1,0 +1,35 @@
+{
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 /home/foxfurry/.config/waybar/scripts/spotifyctl/mediaplayer.py --player spotify",
+        "format": "{} ",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    
+    "hyprland/window": {
+        "separate-outputs": true
+    },
+
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU"
+    },
+
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": ["", "", ""],
+        "max-volume": 150
+    },
+    
+    "clock": {
+        "interval": 1,
+        "format": "{:%I:%M %p %A %b %d}",
+        "tooltip": true,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+}
