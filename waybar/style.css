@@ -1,0 +1,68 @@
+* {
+    font-family: FiraCode Nerd Font;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    color: #F1C27B;
+}
+
+window#waybar{
+    background-color: transparent;
+}
+
+window > box {
+    background-color: transparent;
+    margin: 0.4rem 1.2rem 0rem;
+}
+
+#language,
+#clock,
+#wireplumber,
+#tray,
+#custom-spotify,
+#custom-cava,
+#custom-weather,
+#custom-blank {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px 4px 4px 4px;
+}
+
+/*.modules-left:first-child,*/
+/*.modules-center:first-child,*/
+/*.modules-right:first-child {*/
+
+/*}*/
+
+/*.modules-left:last-child,*/
+/*.modules-center:last-child,*/
+/*.modules-right:last-child {*/
+/*}*/
+
+/* Module specific properties */
+
+/* Left modules */
+#clock {
+    color: #F1C27B;
+}
+
+/* Center modules */
+#custom-spotify {
+    color: #FFD89C;
+}
+
+#custom-cava{
+    color: #A2CDB0;
+}
+
+/* Right modules */
+#language {
+    color: #A2CDB0;
+}
+
+#wireplumber {
+    color: #A2CDB0;
+}
