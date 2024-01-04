@@ -20,7 +20,7 @@
     "hyprland/language": {
         "format": "{}",
         "format-en": "EN",
-        "format-ru": "RU",
+        "format-ru": "RU"
     },
 
     "wireplumber": {
@@ -46,7 +46,7 @@
     "custom/weather": {
         "format": "{}",
         "tooltip": true,
-        "interval": 3600,
+        "interval": 43200,
         "exec": "~/.config/waybar/scripts/weather/wttr.py",
         "return-type": "json"
     },
@@ -55,7 +55,7 @@
     },
 
     "custom/powermenu": {
-        "format": "",
+        "format": "",
         "on-click": "~/.config/waybar/scripts/powermenu/wofi-power-menu.sh",
         "tooltip": false
     }
