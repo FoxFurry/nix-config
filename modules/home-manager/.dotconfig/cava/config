@@ -1,0 +1,12 @@
+[general]
+
+bars = 12
+sleep_timer = 10
+
+[output]
+
+method = raw
+channels = mono
+
+data_format = ascii
+ascii_max_range = 7
