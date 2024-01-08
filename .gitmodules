@@ -1,0 +1,3 @@
+[submodule "modules/home-manager/.config"]
+	path = modules/home-manager/.config
+	url = git@github.com:FoxFurry/.config.git
