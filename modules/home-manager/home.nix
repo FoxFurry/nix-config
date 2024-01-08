@@ -75,10 +75,10 @@
   
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = builtins.readFile ./.config/hypr/hyprland.conf;
+    extraConfig = builtins.readFile ./.dotconfig/hypr/hyprland.conf;
   };  
 
-  xdg.configFile."waybar" = { source = ./.config/waybar; recursive = true; };
+  xdg.configFile."waybar" = { source = ./.dotconfig/waybar; recursive = true; };
 
   programs.vscode = {
     enable = true;
