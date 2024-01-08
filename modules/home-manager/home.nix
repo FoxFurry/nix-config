@@ -70,7 +70,7 @@
             User git
             Hostname github.com
             PreferredAuthentications publickey
-            IdentityFile /home/foxfurry/.ssh/foxfurrygh.pub
+            IdentityFile /home/foxfurry/.ssh/foxfurrygh
     '';
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
