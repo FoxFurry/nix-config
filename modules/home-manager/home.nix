@@ -65,7 +65,13 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-
+    ".ssh/config".test = ''
+    Host github.com
+            User git
+            Hostname github.com
+            PreferredAuthentications publickey
+            IdentityFile /home/foxfurry/.ssh/foxfurrygh.pub
+    '';
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -75,10 +81,10 @@
   
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = builtins.readFile ./.dotconfig/hypr/hyprland.conf;
+    extraConfig = builtins.readFile ./.config/hypr/hyprland.conf;
   };  
 
-  xdg.configFile."waybar" = { source = ./.dotconfig/waybar; recursive = true; };
+  xdg.configFile."waybar" = { source = ./.config/waybar; recursive = true; };
 
   programs.vscode = {
     enable = true;
