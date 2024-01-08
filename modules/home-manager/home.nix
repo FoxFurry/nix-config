@@ -65,7 +65,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".ssh/config".test = ''
+    ".ssh/config".text = ''
     Host github.com
             User git
             Hostname github.com
