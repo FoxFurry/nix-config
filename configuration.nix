@@ -92,6 +92,13 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  fonts = {
+    packages = with pkgs; [
+      fira-code-nerdfont
+      jetbrains-mono
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

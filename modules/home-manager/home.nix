@@ -1,6 +1,11 @@
 { inputs, config, pkgs, ... }:
 
 {
+  imports = [
+    ./ui
+    ./programs
+    ./development
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   
@@ -33,7 +38,6 @@
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-    vim
     spotify
     kitty
     vivaldi
@@ -41,6 +45,8 @@
     jetbrains.goland
     wofi
     waybar
+    python311Full
+    python311Packages.pygobject3
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -79,10 +85,6 @@
     # '';
   };
   
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ./.config/hypr/hyprland.conf;
-  };  
 
   xdg.configFile."waybar" = { source = ./.config/waybar; recursive = true; };
 
@@ -92,7 +94,14 @@
       vscodevim.vim
     ];
   };
-  
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    extraConfig = builtins.readFile ./.config/nvim/init.vim;
+  };
+
   programs.git = {
     enable = true;
     userName = "FoxFurry";
@@ -116,7 +125,7 @@
   home.sessionVariables = {
     DEFAULT_BROWSER = "vivaldi.desktop";
     NIXOS_OZONE_WL = "1";
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
   
   # Let Home Manager install and manage itself.
