@@ -2,8 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    rust
-
     go
     jetbrains.goland
 
