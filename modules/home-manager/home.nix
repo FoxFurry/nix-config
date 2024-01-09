@@ -4,7 +4,7 @@
   imports = [
     ./ui
     ./programs
-    ./development
+#    ./development
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -39,12 +39,10 @@
     # # fonts?
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
     spotify
-    kitty
     vivaldi
     discord
     jetbrains.goland
     wofi
-    waybar
     python311Full
     python311Packages.pygobject3
     # # You can also create simple shell scripts directly inside your
@@ -84,9 +82,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-  
-
-  xdg.configFile."waybar" = { source = ./.config/waybar; recursive = true; };
 
   programs.vscode = {
     enable = true;
@@ -95,12 +90,6 @@
     ];
   };
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    extraConfig = builtins.readFile ./.config/nvim/init.vim;
-  };
 
   programs.git = {
     enable = true;
