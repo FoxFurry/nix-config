@@ -18,7 +18,7 @@ while true; do
 		case $playing in
 		⏸️ | Paused) text=" $line" ;;
 		▶️ | Playing) text=" $line" ;;
-		*) text='Something is dead' ;;
+		*) text="" ;;
 		esac
 
 		# integrations for other services (nwg-wrapper)
