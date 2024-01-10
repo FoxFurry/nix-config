@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Thanks https://github.com/i4pg/dotfiles for awesome cava configuration!!!
 
 is_cava_ServerExist=`ps -ef|grep -m 1 cava|grep -v "grep"|wc -l`

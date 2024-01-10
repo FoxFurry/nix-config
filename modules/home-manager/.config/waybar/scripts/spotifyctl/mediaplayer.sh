@@ -4,21 +4,21 @@ IFS=$'\n\t'
 
 while true; do
 
-	while read -r playing position length name artist title arturl hpos hlen; do
+	while read -r playing position length name artist title arturl; do
 		# remove leaders
 		playing=${playing:1} position=${position:1} length=${length:1} name=${name:1}
-		artist=${artist:1} title=${title:1} arturl=${arturl:1} hpos=${hpos:1} hlen=${hlen:1}
+		artist=${artist:1} title=${title:1} arturl=${arturl:1}
 
 		# build line
-		line="${artist:+$artist ${title:+- }}${title:+$title }${hpos:+$hpos${hlen:+|}}$hlen"
+		line="${artist:+$artist ${title:+- }}${title:+$title }"
 
 		# json escaping
 		line="${line//\"/\\\"}"
 		((percentage = length ? (100 * (position % length)) / length : 0))
 		case $playing in
-		⏸️ | Paused) text='<span foreground=\"#cccc00\" size=\"smaller\">'"$line"'</span>' ;;
-		▶️ | Playing) text="<small>$line</small>" ;;
-		*) text='<span foreground=\"#073642\">⏹</span>' ;;
+		⏸️ | Paused) text=" $line" ;;
+		▶️ | Playing) text=" $line" ;;
+		*) text='Something is dead' ;;
 		esac
 
 		# integrations for other services (nwg-wrapper)

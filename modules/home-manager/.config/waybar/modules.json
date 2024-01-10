@@ -1,6 +1,6 @@
 {
     "custom/spotify": {
-        "exec": "/usr/bin/python3 /home/foxfurry/.config/waybar/scripts/spotifyctl/mediaplayer.py --player spotify",
+        "exec": "~/.config/waybar/scripts/spotifyctl/mediaplayer.sh",
         "format": " {}  ",
         "return-type": "json",
         "on-click": "playerctl play-pause",

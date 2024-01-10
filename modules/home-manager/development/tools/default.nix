@@ -1,12 +1,16 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    go
-    jetbrains.goland
-
-    python311Full
-    python311Packages.pygobject3
+  home.packages = let
+    pythonEnv = pkgs.python311Full.withPackages (p: with p; [
+      pygobject3
+      requests
+    ]);
+  in [
+    pythonEnv
+    pkgs.go
+    pkgs.jetbrains.goland
+    pkgs.killall
   ];
 
   programs.git = {
