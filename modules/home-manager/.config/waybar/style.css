@@ -28,6 +28,7 @@ window > box {
 #clock,
 #wireplumber,
 #tray,
+#cava,
 #custom-spotify,
 #custom-cava,
 #custom-weather,
@@ -54,7 +55,8 @@ window > box {
     color: #DCD6F7;
 }
 
-#custom-cava{
+#custom-cava,
+#cava {
     color: #A6B1E1;
 }
 
