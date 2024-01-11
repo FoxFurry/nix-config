@@ -31,6 +31,7 @@
     },
     
     "clock": {
+        "framerate": 30,
         "interval": 1,
         "format": "{:%H:%M %p %A %b %d}",
         "tooltip": true,
@@ -41,7 +42,8 @@
     "cava": {
         "framerate": 30,
         "sleep-timer": 10,
-        "method": "raw",
+        "method": "pulse",
+        "bar_delimiter": 0,
         "channels": "mono",
         "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
         "actions": {
