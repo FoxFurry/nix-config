@@ -21,7 +21,6 @@
       };
     in
     {
-    
       nixosConfigurations = {
         foxfurry = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};

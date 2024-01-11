@@ -53,6 +53,8 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
+    DEFAULT_BROWSER = "vivaldi.desktop";
+    EDITOR = "nvim";
   };
 
   # Set your time zone.
@@ -78,7 +80,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "foxfurry" = import ./modules/home-manager/home.nix;
+      "foxfurry" = import ./modules/home.nix;
     };
   };
   # Allow unfree packages
@@ -91,6 +93,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    kitty
+    go
+    jetbrains.goland
+    killall
+    spotify
+    vivaldi
+    discord
+    playerctl
+    cava
+    dunst
+    waybar
+    wofi
   ];
 
   fonts = {
