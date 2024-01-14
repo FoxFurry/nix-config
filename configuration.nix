@@ -111,7 +111,7 @@
     mpvpaper
     vlc
     telegram-desktop
-    code
+    vscode
   ];
 
   fonts = {
