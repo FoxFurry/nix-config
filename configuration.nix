@@ -37,6 +37,10 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+          vaapiVdpau
+          libvdpau-va-gl
+        ];
   };
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -103,6 +107,11 @@
     dunst
     waybar
     wofi
+    tmux
+    mpvpaper
+    vlc
+    telegram-desktop
+    code
   ];
 
   fonts = {
