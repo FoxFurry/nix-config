@@ -59,6 +59,7 @@
     NIXOS_OZONE_WL = "1";
     DEFAULT_BROWSER = "vivaldi.desktop";
     EDITOR = "nvim";
+    TERMINAL = "kitty";
   };
 
   # Set your time zone.
@@ -95,7 +96,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     (python311Full.withPackages(ps: with ps; [ requests ]))
-    kitty
     go
     jetbrains.goland
     killall
@@ -108,10 +108,10 @@
     waybar
     wofi
     tmux
-    mpvpaper
-    vlc
     telegram-desktop
-    vscode
+    swww
+    ranger
+    ueberzugpp
   ];
 
   fonts = {
