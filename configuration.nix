@@ -103,13 +103,17 @@
     vivaldi
     discord
     playerctl
+    floorp
     cava
+    openrgb-with-all-plugins
     dunst
     waybar
     wofi
     tmux
     telegram-desktop
     swww
+    qt5Full
+    qt6.qtwayland
     ranger
     ueberzugpp
   ];
@@ -118,6 +122,7 @@
     packages = with pkgs; [
       fira-code-nerdfont
       jetbrains-mono
+      noto-fonts-cjk-sans
     ];
   };
 
