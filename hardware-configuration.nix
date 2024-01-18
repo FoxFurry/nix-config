@@ -4,9 +4,12 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 let
-  openrgb-rules = builtins.fetchurl {
-    url = "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/ca3c2ad54188c604c7626136ceda574e9fde3bc0/60-openrgb.rules";
-    sha256 = "0s0cdjdc5yndzwl0l2lccbqv08r0js7laln0slncb7h1lj6k5imf";
+  openrgb-rules = pkgs.writeTextFile {
+    name = "60-openrgb.rules";
+    text = builtins.fetchurl {
+        url = "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/ca3c2ad54188c604c7626136ceda574e9fde3bc0/60-openrgb.rules";
+        sha256 = "0s0cdjdc5yndzwl0l2lccbqv08r0js7laln0slncb7h1lj6k5imf";
+    };
   };
 in {
   imports =
@@ -29,7 +32,8 @@ in {
     };
 
   swapDevices = [ ];
-  services.udev.extraRules = builtins.readFile openrgb-rules;
+  services.udev.packages = [ openrgb-rules ];
+  #services.udev.extraRules = builtins.readFile openrgb-rules;
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
