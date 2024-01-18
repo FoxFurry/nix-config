@@ -3,15 +3,7 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
-let
-  openrgb-rules = pkgs.writeTextFile {
-    name = "60-openrgb.rules";
-    text = builtins.fetchurl {
-        url = "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/ca3c2ad54188c604c7626136ceda574e9fde3bc0/60-openrgb.rules";
-        sha256 = "0s0cdjdc5yndzwl0l2lccbqv08r0js7laln0slncb7h1lj6k5imf";
-    };
-  };
-in {
+{
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
@@ -20,7 +12,9 @@ in {
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" "i2c-dev" "i2c-piix4" ];
   boot.extraModulePackages = [ ];
-
+  boot.kernelParams = [
+    "acpi_enforce_resources=lax"
+  ];
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/67c9c85e-5cdd-451f-9ac9-081c3829e631";
       fsType = "ext4";
@@ -32,7 +26,9 @@ in {
     };
 
   swapDevices = [ ];
-  services.udev.packages = [ openrgb-rules ];
+  services.udev.packages = [ 
+    pkgs.openrgb-with-all-plugins
+  ];  
   #services.udev.extraRules = builtins.readFile openrgb-rules;
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
