@@ -5,12 +5,8 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    extraConfig = builtins.readFile ./../../../.config/nvim/init.vim;
-    plugins = with pkgs.vimPlugins; [
-      nvim-treesitter
-      elixir-tools-nvim
-      nvchad-ui
-      catppuccin-nvim
-    ];
+    #extraConfig = builtins.readFile ./../../../.config/nvim/init.vim;
   };
+
+ xdg.configFile."nvim" = { source = ./../../../.config/nvim_nvchad; recursive = true; };
 }
