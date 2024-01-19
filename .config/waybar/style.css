@@ -5,7 +5,7 @@
     border-radius: 1rem;
     transition-property: background-color;
     transition-duration: 0.5s;
-    color: #F1C27B;
+    color: #b7bdf8;
 }
 
 window#waybar{
@@ -14,13 +14,13 @@ window#waybar{
 
 window > box {
     background-color: transparent;
-    margin: 0.4rem 1.2rem 0rem;
+    margin: 0.4rem 1.2rem 0;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 0.2rem 1rem;
 }
 
@@ -44,38 +44,40 @@ window > box {
 
 /* Left modules */
 #custom-weather {
-    color: #F4EEFF;
+    color: #f4dbd6;
 }
 
-#clock {
-    color: #F4EEFF;
+#temperature {
+    color: #f0c6c6;
 }
 
 /* Center modules */
 #custom-spotify {
-    color: #DCD6F7;
+    color: #f5bde6;
 }
 
 #custom-cava,
-#cava,
-#temperature {
-    color: #A6B1E1;
+#cava {
+    color: #c6a0f6;
 }
 
-
 #wireplumber {
-    color: #A6B1E1;
+    color: #f5bde6;
 }
 
 /* Right modules */
-#language {
-    color: #424874;
+#tray {
+    color: #ee99a0;
 }
 
-#tray {
-    color: #424874;
+#language {
+    color: #eed49f;
+}
+
+#clock {
+    color: #eed49f;
 }
 
 #custom-powermenu {
-    color: #424874;
+    color: #a6da95;
 }
