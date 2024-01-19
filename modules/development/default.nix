@@ -5,5 +5,6 @@
     ./ranger
     ./ssh
     ./tools
+    ./zsh
   ];
 }
