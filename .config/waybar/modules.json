@@ -68,10 +68,10 @@
     },
 
     "custom/weather": {
-        "format": "{}",
+        "format": "{} °",
         "tooltip": true,
-        "interval": 43200,
-        "exec": "~/.config/waybar/scripts/weather/wttr.py",
+        "interval": 3600,
+        "exec": "wttrbar",
         "return-type": "json"
     },
     "custom/blank": {

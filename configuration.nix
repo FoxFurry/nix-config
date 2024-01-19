@@ -118,11 +118,13 @@
     qt6.qtwayland
     ranger
     ueberzugpp
+    wttrbar
   ];
 
   fonts = {
     packages = with pkgs; [
       fira-code-nerdfont
+      noto-fonts-color-emoji
       jetbrains-mono
       noto-fonts-cjk-sans
     ];
