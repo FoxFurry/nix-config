@@ -7,4 +7,6 @@
     xwayland.enable = true;
     extraConfig = builtins.readFile ./../../../.config/hypr/hyprland.conf;
   };
+
+  xdg.configFile."hypr/hyprpaper.conf" = { source = ./../../../.config/hypr/hyprpaper.conf;  };
 }

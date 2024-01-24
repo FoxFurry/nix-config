@@ -10,12 +10,13 @@
         catppuccin.catppuccin-vsc-icons
       ];
       userSettings = {
-        "files.autoSave" = "on";
+        "files.autoSave" = "onFocusChange";
         "[nix]"."editor.tabSize" = 2;
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Frappé";
         "workbench.preferredDarkColorTheme" = "Catppuccin Frappé";
         "workbench.iconTheme" = "catppuccin-frappe";
+        "terminal.explorerKind" = "external";
       };
     };
 }

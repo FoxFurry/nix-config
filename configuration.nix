@@ -105,6 +105,7 @@
     vivaldi
     discord
     playerctl
+    hyprpaper
     floorp
     cava
     openrgb-with-all-plugins
