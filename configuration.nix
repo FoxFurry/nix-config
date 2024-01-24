@@ -113,6 +113,9 @@
     waybar
     wofi
     tmux
+    grim
+    slurp
+    wl-clipboard
     telegram-desktop
     swww
     qt5Full
