@@ -30,6 +30,13 @@
         "max-volume": 150
     },
     
+    "custom/wireplumber": {
+        "exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}'",
+        "format": "{} ",
+        "on-click": "playerctl play-pause",
+        "interval": 1
+    },
+
     "clock": {
         "framerate": 30,
         "interval": 1,

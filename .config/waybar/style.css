@@ -30,6 +30,7 @@ window > box {
 #tray,
 #cava,
 #custom-spotify,
+#custom-wireplumber,
 #custom-cava,
 #custom-weather,
 #custom-powermenu,
@@ -61,7 +62,8 @@ window > box {
     color: #c6a0f6;
 }
 
-#wireplumber {
+#wireplumber,
+#custom-wireplumber {
     color: #f5bde6;
 }
 
