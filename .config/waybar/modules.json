@@ -31,10 +31,8 @@
     },
     
     "custom/wireplumber": {
-        "exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100}'",
-        "format": "{} ",
+        "exec": "~/.config/waybar/scripts/wpctl/wpctl.sh",
         "on-click": "playerctl play-pause",
-        "interval": 1
     },
 
     "clock": {
