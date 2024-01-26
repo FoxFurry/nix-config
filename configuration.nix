@@ -131,6 +131,7 @@
     qt6.qtwayland
     ranger
     ueberzugpp
+    pavucontrol
     wttrbar
   ];
 

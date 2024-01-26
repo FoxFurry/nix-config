@@ -32,7 +32,7 @@
     
     "custom/wireplumber": {
         "exec": "~/.config/waybar/scripts/wpctl/wpctl.sh",
-        "on-click": "playerctl play-pause",
+        "on-click": "pavucontrol"
     },
 
     "clock": {
