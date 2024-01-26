@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  xdg.configFile."ranger" = { source = ./../../../.config/ranger; recursive = true; };
+  xdg.configFile."dunst" = { source = ./../../../.config/dunst; recursive = true; };
 }

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./dunst
     ./kitty
     ./nvim
     ./ranger
