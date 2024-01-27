@@ -6,6 +6,7 @@
     ./ranger
     ./ssh
     ./tools
+    ./wofi
     ./zsh
   ];
 }
