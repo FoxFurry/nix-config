@@ -115,7 +115,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     go
-    google-chrome
     jetbrains.goland
     killall
     spotify

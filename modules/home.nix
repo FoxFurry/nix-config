@@ -1,12 +1,12 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports = [
-    ./development
-    ./mimes
-    ./programs
-    ./ui
-  ];
+  # imports = [
+  #   ./development
+  #   ./mimes
+  #   ./programs
+  #   ./ui
+  # ];
 
   nixpkgs = {
     config = {
