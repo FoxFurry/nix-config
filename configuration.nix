@@ -44,8 +44,6 @@
   networking.networkmanager.enable = true;
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
     extraPackages = with pkgs; [
           vaapiVdpau
           libvdpau-va-gl
@@ -106,17 +104,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (python311Full.withPackages(ps: with ps; [ requests ]))
     go
     google-chrome
     jetbrains.goland
     killall
     spotify
-    vivaldi
     discord
     playerctl
     hyprpaper
-    floorp
     cava
     openrgb-with-all-plugins
     dunst
@@ -128,7 +123,6 @@
     wl-clipboard
     telegram-desktop
     swww
-    qt5Full
     qt6.qtwayland
     ranger
     ueberzugpp
