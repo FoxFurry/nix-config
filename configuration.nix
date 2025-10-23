@@ -108,6 +108,7 @@
   environment.systemPackages = with pkgs; [
     (python311Full.withPackages(ps: with ps; [ requests ]))
     go
+    google-chrome
     jetbrains.goland
     killall
     spotify
