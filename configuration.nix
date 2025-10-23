@@ -42,7 +42,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
           vaapiVdpau
@@ -76,9 +76,9 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -99,7 +99,17 @@
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [
+      "https://cache.nixos.org"
+      "https://hyprland.cachix.org"
+    ]
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ]
+  }
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -132,7 +142,7 @@
 
   fonts = {
     packages = with pkgs; [
-      fira-code-nerdfont
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
       noto-fonts-color-emoji
       jetbrains-mono
       noto-fonts-cjk-sans
