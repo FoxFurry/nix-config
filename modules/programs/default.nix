@@ -4,12 +4,12 @@
     programs.vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
       ];
-      userSettings = {
+      profiles.default.userSettings = {
         "files.autoSave" = "onFocusChange";
         "[nix]"."editor.tabSize" = 2;
         "window.titleBarStyle" = "custom";
