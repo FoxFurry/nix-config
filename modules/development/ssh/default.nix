@@ -3,11 +3,11 @@
 {
   home.file = {
     ".ssh/config".text = ''
-    # Default configuration for all hosts
-    Host *
+    Host github.com
+        HostName github.com
+        User git
         IdentityFile ~/.ssh/id_ed25519
-        AddKeysToAgent yes
-        UseKeychain yes
+        IdentitiesOnly yes
 
     # Personal GitHub account
     Host github.com-personal

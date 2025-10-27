@@ -102,6 +102,14 @@ nix flake check
 
 Uses both official NixOS cache and Hyprland cachix (configuration.nix:104-111) for faster builds.
 
+### File Modification Policy
+
+**CRITICAL**: Never modify files in `~/.config` (home directory). These are symlinks to the Nix store and are read-only.
+
+- Always modify files in `/etc/nixos/.config/` instead (the source configuration files)
+- After modifying configuration files, run `sudo nixos-rebuild switch --flake .#foxfurry` to apply changes
+- The NixOS rebuild process will create new symlinks from `~/.config` to the updated files in the Nix store
+
 ## State Versions
 
 - System: 23.11 (configuration.nix:180)

@@ -11,4 +11,5 @@
       "x-scheme-handler/unknown" = "vivaldi.desktop";
     };
   };
+  xdg.configFile."mimeapps.list".force = true;
 }
