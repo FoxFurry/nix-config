@@ -115,6 +115,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     go
+    claude-code
+    google-chrome
     jetbrains.goland
     killall
     spotify
@@ -141,7 +143,7 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      pkgs.nerd-fonts.fira-code
       noto-fonts-color-emoji
       jetbrains-mono
       noto-fonts-cjk-sans
