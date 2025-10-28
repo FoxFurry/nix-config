@@ -67,6 +67,10 @@
     DEFAULT_BROWSER = "vivaldi.desktop";
     EDITOR = "nvim";
     TERMINAL = "kitty";
+
+    # Additional NVIDIA Wayland fixes for better compatibility
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   # Set your time zone.

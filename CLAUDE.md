@@ -87,6 +87,14 @@ nix flake check
 
 ## Important Configuration Details
 
+### Command Execution Policy
+
+**CRITICAL**: Never execute `nixos-rebuild` commands (switch, test, build, etc.) in Claude Code. These commands require sudo and are system-critical operations that only the user should run manually.
+
+- After making configuration changes, inform the user to run the appropriate `nixos-rebuild` command
+- Do NOT use the Bash tool to execute any `nixos-rebuild` commands
+- The user will manually execute these commands when ready
+
 ### NVIDIA Setup
 
 - Using proprietary drivers (hardware.nvidia.open = false in configuration.nix:59)
