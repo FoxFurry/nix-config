@@ -24,11 +24,18 @@
       nixosConfigurations = {
         foxfurry = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
-          modules = [ 
+          modules = [
             ./configuration.nix
             inputs.home-manager.nixosModules.default
           ];
         };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        shellHook = ''
+          export PATH="$HOME/go/bin:$PATH"
+          echo "ViralVibe dev environment loaded"
+        '';
       };
     };
 }

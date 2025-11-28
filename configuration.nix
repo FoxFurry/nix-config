@@ -39,7 +39,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
+  virtualisation.docker.enable = true;
   # Enable networking
   networking.networkmanager.enable = true;
   hardware.graphics = {
@@ -91,7 +91,7 @@
 
     isNormalUser = true;
     description = "FoxFurry";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -118,6 +118,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    gnumake
+    jq
+    nodejs_22
+    protobuf
     go
     claude-code
     google-chrome
