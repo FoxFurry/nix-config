@@ -119,9 +119,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gnumake
+    grpcurl
     jq
     nodejs_22
     protobuf
+    protoc-gen-go
+    protoc-gen-go-grpc
+    protoc-gen-js
+    protoc-gen-grpc-web
     go
     claude-code
     google-chrome
