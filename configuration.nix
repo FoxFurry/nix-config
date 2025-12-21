@@ -119,6 +119,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gcc
+    google-cloud-sdk
     gnumake
     grpcurl
     jq
