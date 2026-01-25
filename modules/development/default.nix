@@ -3,6 +3,7 @@
     ./dunst
     ./kitty
     ./nvim
+    ./quickshell
     ./ranger
     ./ssh
     ./tools

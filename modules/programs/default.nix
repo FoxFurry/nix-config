@@ -5,7 +5,6 @@
       enable = true;
       package = pkgs.vscode.fhs;
       profiles.default.extensions = with pkgs.vscode-extensions; [
-        vscodevim.vim
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
       ];
