@@ -118,7 +118,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    pnpm
     quickshell
+    firebase-tools
     gcc
     google-cloud-sdk
     gnumake
