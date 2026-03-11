@@ -1,5 +1,6 @@
-import Quickshell // for PanelWindow
-import QtQuick // for Text
+import Quickshell
+import Quickshell.Io // for Process
+import QtQuick
 
 PanelWindow {
   anchors {
@@ -11,9 +12,27 @@ PanelWindow {
   implicitHeight: 30
 
   Text {
-    // center the bar in its parent component (the window)
+    // give the text an ID we can refer to elsewhere in the file
+    id: clock
+
     anchors.centerIn: parent
 
-    text: "hello world"
+    // create a process management object
+    Process {
+      // the command it will run, every argument is its own string
+      command: ["date"]
+
+      // run the command immediately
+      running: true
+
+      // process the stdout stream using a StdioCollector
+      // Use StdioCollector to retrieve the text the process sends
+      // to stdout.
+      stdout: StdioCollector {
+        // Listen for the streamFinished signal, which is sent
+        // when the process closes stdout or exits.
+        onStreamFinished: clock.text = this.text // `this` can be omitted
+      }
+    }
   }
 }
