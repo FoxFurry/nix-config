@@ -26,7 +26,6 @@
     ];
   };
 
-  services.postgresql.enable = true;
   
   services.pipewire = {
     enable = true;
@@ -47,7 +46,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-          vaapiVdpau
+          libva-vdpau-driver
           libvdpau-va-gl
         ];
   };
@@ -121,12 +120,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     pnpm
+    temporal-cli
     quickshell
     firebase-tools
     gcc
     google-cloud-sdk
     gnumake
     grpcurl
+    postgresql
     jq
     nodejs_22
     protobuf
