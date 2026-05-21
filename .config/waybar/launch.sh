@@ -7,7 +7,7 @@
 #    /_/    \____/_/|_/_/    \__,_/_/  /_/   \__, /
 #                                           /____/
 
-killall waybar
+pkill waybar; true
 
 waybar -c $HOME/.config/waybar/waybar.conf -s $HOME/.config/waybar/style.css &
 waybar -c $HOME/.config/waybar/waybar-secondary.conf -s $HOME/.config/waybar/style.css
