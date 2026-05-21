@@ -17,7 +17,7 @@
   home.homeDirectory = "/home/foxfurry";
 
   home.packages = with pkgs; [
-    swww
+    awww
   ];
 
   home.pointerCursor = {
