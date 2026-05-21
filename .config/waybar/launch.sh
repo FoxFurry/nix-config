@@ -9,4 +9,5 @@
 
 killall waybar
 
-waybar -c $HOME/.config/waybar/waybar.conf -s $HOME/.config/waybar/style.css
+waybar -c $HOME/.config/waybar/waybar.conf -s $HOME/.config/waybar/style.css &
+waybar -c $HOME/.config/waybar/waybar-secondary.conf -s $HOME/.config/waybar/style.css
