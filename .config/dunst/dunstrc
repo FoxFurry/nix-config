@@ -94,7 +94,6 @@
     gap_size = 5
 
     # Defines color of the frame around the notification window.
-    # frame_color = "#7bc5e4"
     frame_color = "#c6a0f6"
 
     # Define a color for the separator.
