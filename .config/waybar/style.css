@@ -36,11 +36,7 @@ window > box {
     padding: 0.15rem 0.8rem;
 }
 
-/* Hide empty left/right on primary pill bar */
-.modules-left:empty,
-.modules-right:empty {
-    display: none;
-}
+/* Primary bar has no left/right modules — keep transparent */
 
 #language,
 #clock,
