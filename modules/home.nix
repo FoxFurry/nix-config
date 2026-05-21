@@ -6,7 +6,7 @@
      ./mimes
      ./programs
      ./ui
-     inputs.catppuccin.homeManagerModules.catppuccin
+     inputs.catppuccin.homeModules.catppuccin
    ];
 
   nixpkgs = {
@@ -24,6 +24,7 @@
   catppuccin.flavor = "macchiato";
   catppuccin.accent = "mauve";
   catppuccin.cursors.enable = true;
+  catppuccin.vscode.enable = false;
 
   home.stateVersion = "23.11";
 
