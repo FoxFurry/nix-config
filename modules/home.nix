@@ -6,7 +6,6 @@
      ./mimes
      ./programs
      ./ui
-     inputs.catppuccin.homeModules.catppuccin
    ];
 
   nixpkgs = {
@@ -21,10 +20,13 @@
     swww
   ];
 
-  catppuccin.flavor = "macchiato";
-  catppuccin.accent = "mauve";
-  catppuccin.cursors.enable = true;
-  catppuccin.vscode.enable = false;
+  home.pointerCursor = {
+    name = "catppuccin-macchiato-mauve-cursors";
+    package = pkgs.catppuccin-cursors.macchiatoMauve;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
 
   home.stateVersion = "23.11";
 
