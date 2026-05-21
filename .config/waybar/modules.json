@@ -1,13 +1,13 @@
 {
     "custom/spotify": {
         "exec": "~/.config/waybar/scripts/spotifyctl/mediaplayer.sh",
-        "format": " {}  ",
+        "format": " {}  ",
         "return-type": "json",
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"
     },
-    
+
     "hyprland/window": {
         "separate-outputs": true
     },
@@ -25,11 +25,11 @@
 
     "wireplumber": {
         "format": "{volume}% {icon} ",
-        "format-muted": "",
-        "format-icons": ["", "", ""],
+        "format-muted": "",
+        "format-icons": ["", "", ""],
         "max-volume": 150
     },
-    
+
     "custom/wireplumber": {
         "exec": "~/.config/waybar/scripts/wpctl/wpctl.sh",
         "on-click": "pavucontrol"
@@ -84,8 +84,29 @@
     },
 
     "custom/powermenu": {
-        "format": "",
+        "format": "",
         "on-click": "~/.config/waybar/scripts/powermenu/wofi-power-menu.sh",
         "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "●",
+            "2": "●",
+            "3": "●",
+            "4": "●",
+            "5": "●",
+            "6": "●",
+            "7": "●",
+            "8": "●",
+            "9": "●",
+            "10": "●",
+            "active": "●",
+            "default": "○"
+        },
+        "persistent-workspaces": {
+            "DP-4": [1, 2, 3, 4, 5]
+        }
     }
 }
