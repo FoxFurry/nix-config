@@ -97,6 +97,13 @@ stdenv.mkDerivation (finalAttrs: {
     substituteInPlace $out/bin/cmux-app \
       --replace-fail /usr/bin/cmux-app.bin $out/bin/cmux-app.bin
 
+    # The cmux CLI locates agent-browser via current_exe() / $PATH, i.e. it
+    # expects it beside the cmux binary. The .deb ships it in lib/cmux (found on
+    # Debian because /usr/lib/cmux is added by the app), but our layout differs,
+    # so link it into bin/ where cmux looks first. Wrapping (postFixup) then
+    # rewrites this symlink target's wrapper in place.
+    ln -s $out/lib/cmux/agent-browser $out/bin/agent-browser
+
     runHook postInstall
   '';
 
@@ -112,21 +119,30 @@ stdenv.mkDerivation (finalAttrs: {
     # The GTK4 GL terminal: without gl-prefer-gl, NVIDIA's EGL hands the
     # GtkGLArea an OpenGL *ES* context, but Ghostty's renderer needs desktop
     # OpenGL -> "Unable to create a GL context". Forcing desktop GL fixes it.
+    # agent-browser resolves its browser via AGENT_BROWSER_EXECUTABLE_PATH (its
+    # documented var); CHROME_PATH is kept as a fallback for the `which` list.
+    browserEnv=(
+      --set-default AGENT_BROWSER_EXECUTABLE_PATH ${lib.getExe chromium}
+      --set-default AGENT_BROWSER_ENGINE chrome
+      --set-default CHROME_PATH ${lib.getExe chromium}
+    )
+
+    # The GTK4 GL terminal: without gl-prefer-gl, NVIDIA's EGL hands the
+    # GtkGLArea an OpenGL *ES* context, but Ghostty's renderer needs desktop
+    # OpenGL -> "Unable to create a GL context". Forcing desktop GL fixes it.
     wrapProgram $out/bin/cmux-app.bin \
       --prefix LD_LIBRARY_PATH : "$glPath" \
       --set-default GDK_DEBUG gl-prefer-gl \
-      --set-default CHROME_PATH ${lib.getExe chromium} \
-      --set-default AGENT_BROWSER_ENGINE chrome
+      "''${browserEnv[@]}"
 
     wrapProgram $out/bin/cmux \
       --prefix LD_LIBRARY_PATH : "$glPath" \
-      --set-default CHROME_PATH ${lib.getExe chromium} \
-      --set-default AGENT_BROWSER_ENGINE chrome
+      "''${browserEnv[@]}"
 
     # agent-browser is invoked by cmux; give it the same browser + GL context.
     wrapProgram $out/lib/cmux/agent-browser \
       --prefix LD_LIBRARY_PATH : "$glPath" \
-      --set-default CHROME_PATH ${lib.getExe chromium}
+      "''${browserEnv[@]}"
   '';
 
   meta = {
