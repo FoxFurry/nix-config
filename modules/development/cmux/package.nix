@@ -109,12 +109,19 @@ stdenv.mkDerivation (finalAttrs: {
     # that knows to load the vendor implementation from /run/opengl-driver/lib.
     glPath="${lib.makeLibraryPath [ libglvnd ]}:/run/opengl-driver/lib"
 
-    for exe in cmux cmux-app.bin; do
-      wrapProgram $out/bin/$exe \
-        --prefix LD_LIBRARY_PATH : "$glPath" \
-        --set-default CHROME_PATH ${lib.getExe chromium} \
-        --set-default AGENT_BROWSER_ENGINE chrome
-    done
+    # The GTK4 GL terminal: without gl-prefer-gl, NVIDIA's EGL hands the
+    # GtkGLArea an OpenGL *ES* context, but Ghostty's renderer needs desktop
+    # OpenGL -> "Unable to create a GL context". Forcing desktop GL fixes it.
+    wrapProgram $out/bin/cmux-app.bin \
+      --prefix LD_LIBRARY_PATH : "$glPath" \
+      --set-default GDK_DEBUG gl-prefer-gl \
+      --set-default CHROME_PATH ${lib.getExe chromium} \
+      --set-default AGENT_BROWSER_ENGINE chrome
+
+    wrapProgram $out/bin/cmux \
+      --prefix LD_LIBRARY_PATH : "$glPath" \
+      --set-default CHROME_PATH ${lib.getExe chromium} \
+      --set-default AGENT_BROWSER_ENGINE chrome
 
     # agent-browser is invoked by cmux; give it the same browser + GL context.
     wrapProgram $out/lib/cmux/agent-browser \
