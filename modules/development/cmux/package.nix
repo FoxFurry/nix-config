@@ -12,6 +12,7 @@
   fontconfig,
   freetype,
   libGL,
+  libglvnd,
   oniguruma,
   pango,
   cairo,
@@ -33,9 +34,12 @@
 #
 # Two NixOS-specific problems this derivation solves:
 #   1. ELF interpreter + NEEDED libs point at FHS paths -> autoPatchelfHook.
-#   2. cmux-app.bin needs the *system* NVIDIA libGL at runtime (proprietary
-#      driver lives in /run/opengl-driver, not the store) -> we prepend that
-#      path to LD_LIBRARY_PATH in a wrapper (nixGL-style).
+#   2. cmux-app.bin is a GTK4 GL app. On NixOS the glvnd dispatch layer
+#      (libGL.so.1 / libEGL.so.1) comes from the store (libglvnd), while the
+#      *vendor* driver (libGLX_nvidia / libEGL_nvidia) lives in
+#      /run/opengl-driver/lib. Both must be on the runtime library path, with
+#      glvnd resolvable and the driver dir present so glvnd can dispatch to the
+#      NVIDIA vendor lib. We wrap with LD_LIBRARY_PATH = libglvnd + driver dir.
 #   3. agent-browser resolves a browser via `which google-chrome...`; there is
 #      none on NixOS, so we point it at nixpkgs chromium via CHROME_PATH.
 
@@ -100,16 +104,21 @@ stdenv.mkDerivation (finalAttrs: {
   #  - system GL driver path for the GTK4 app (NVIDIA proprietary)
   #  - a real browser for the CDP daemon
   postFixup = ''
+    # glvnd dispatch (store) + NVIDIA/mesa vendor libs (system driver dir).
+    # glvnd must come first so libGL.so.1/libEGL.so.1 resolve to the store copy
+    # that knows to load the vendor implementation from /run/opengl-driver/lib.
+    glPath="${lib.makeLibraryPath [ libglvnd ]}:/run/opengl-driver/lib"
+
     for exe in cmux cmux-app.bin; do
       wrapProgram $out/bin/$exe \
-        --prefix LD_LIBRARY_PATH : /run/opengl-driver/lib \
+        --prefix LD_LIBRARY_PATH : "$glPath" \
         --set-default CHROME_PATH ${lib.getExe chromium} \
         --set-default AGENT_BROWSER_ENGINE chrome
     done
 
     # agent-browser is invoked by cmux; give it the same browser + GL context.
     wrapProgram $out/lib/cmux/agent-browser \
-      --prefix LD_LIBRARY_PATH : /run/opengl-driver/lib \
+      --prefix LD_LIBRARY_PATH : "$glPath" \
       --set-default CHROME_PATH ${lib.getExe chromium}
   '';
 
