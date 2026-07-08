@@ -161,6 +161,12 @@
     ueberzugpp
     pavucontrol
     wttrbar
+    (python3.withPackages (ps: with ps; [
+      psycopg2
+      matplotlib
+      scikit-learn
+      umap-learn
+    ]))
   ];
 
   fonts = {
@@ -171,6 +177,11 @@
       noto-fonts-cjk-sans
     ];
   };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+  ];
 
   programs.zsh.enable = true;
 
