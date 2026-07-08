@@ -1,6 +1,7 @@
 {
   imports = [
     ./dunst
+    ./gh
     ./kitty
     ./nvim
     ./quickshell
