@@ -1,5 +1,6 @@
 {
   imports = [
+    ./cmux-skills
     ./dunst
     ./gh
     ./kitty
