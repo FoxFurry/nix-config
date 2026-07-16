@@ -1,5 +1,6 @@
 {
   imports = [
+    ./claude-remote
     ./cmux-skills
     ./dunst
     ./gh

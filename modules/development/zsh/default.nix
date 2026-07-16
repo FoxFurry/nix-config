@@ -3,6 +3,11 @@
 {
   programs.zsh = {
     enable = true;
+    initContent = ''
+      # Attach to the autostarted Claude remote-control tmux session
+      # (systemd user service claude-remote; the QR code lives in there).
+      alias crc='tmux attach -t claude-remote'
+    '';
     oh-my-zsh = {
       enable = true;
     };
